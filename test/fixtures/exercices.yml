@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  bac: false
+  millesime: 1
+  theme: MyString
+  contenu: MyText
+
+two:
+  bac: false
+  millesime: 1
+  theme: MyString
+  contenu: MyText

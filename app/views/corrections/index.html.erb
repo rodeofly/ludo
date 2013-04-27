@@ -1,0 +1,21 @@
+<h1>Listing corrections</h1>
+
+<table>
+  <tr>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @corrections.each do |correction| %>
+  <tr>
+    <td><%= link_to 'Show', correction %></td>
+    <td><%= link_to 'Edit', edit_correction_path(correction) %></td>
+    <td><%= link_to 'Destroy', correction, confirm: 'Are you sure?', method: :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Correction', new_correction_path %>

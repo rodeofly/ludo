@@ -1,0 +1,4 @@
+rails new ludo
+rails generate scaffold Sujet
+rails generate scaffold Exercice bac:boolean millesime:integer theme:string contenu:text
+rails generate scaffold Correction
