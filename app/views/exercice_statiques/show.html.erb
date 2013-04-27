@@ -1,0 +1,15 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Exercice:</b>
+  <%= @exercice_statique.exercice_id %>
+</p>
+
+<p>
+  <b>Statique:</b>
+  <%= @exercice_statique.statique_id %>
+</p>
+
+
+<%= link_to 'Edit', edit_exercice_statique_path(@exercice_statique) %> |
+<%= link_to 'Back', exercice_statiques_path %>

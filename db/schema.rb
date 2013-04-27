@@ -11,20 +11,51 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130427060902) do
+ActiveRecord::Schema.define(:version => 20130427095114) do
 
   create_table "corrections", :force => true do |t|
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
+    t.text     "contenu"
+  end
+
+  create_table "dynamiques", :force => true do |t|
+    t.boolean  "bac"
+    t.boolean  "correction"
+    t.string   "titre"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  create_table "exercice_dynamiques", :force => true do |t|
+    t.integer  "exercice_id"
+    t.integer  "dynamique_id"
+    t.datetime "created_at",   :null => false
+    t.datetime "updated_at",   :null => false
+  end
+
+  create_table "exercice_statiques", :force => true do |t|
+    t.integer  "exercice_id"
+    t.integer  "statique_id"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
+  end
+
+  create_table "exercice_sujet_statiques", :force => true do |t|
+    t.integer  "exercice_id"
+    t.integer  "sujet_statique_id"
+    t.datetime "created_at",        :null => false
+    t.datetime "updated_at",        :null => false
   end
 
   create_table "exercices", :force => true do |t|
     t.boolean  "bac"
     t.integer  "millesime"
-    t.string   "theme"
     t.text     "contenu"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.datetime "created_at",    :null => false
+    t.datetime "updated_at",    :null => false
+    t.integer  "theme_id"
+    t.integer  "correction_id"
   end
 
   create_table "rails_admin_histories", :force => true do |t|
@@ -40,7 +71,28 @@ ActiveRecord::Schema.define(:version => 20130427060902) do
 
   add_index "rails_admin_histories", ["item", "table", "month", "year"], :name => "index_rails_admin_histories"
 
+  create_table "statiques", :force => true do |t|
+    t.boolean  "bac"
+    t.string   "titre"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+    t.boolean  "correction"
+  end
+
+  create_table "sujet_statiques", :force => true do |t|
+    t.boolean  "bac"
+    t.string   "titre"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
   create_table "sujets", :force => true do |t|
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  create_table "themes", :force => true do |t|
+    t.string   "intitule"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end

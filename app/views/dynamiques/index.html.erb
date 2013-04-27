@@ -1,0 +1,27 @@
+<h1>Listing dynamiques</h1>
+
+<table>
+  <tr>
+    <th>Bac</th>
+    <th>Correction</th>
+    <th>Titre</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @dynamiques.each do |dynamique| %>
+  <tr>
+    <td><%= dynamique.bac %></td>
+    <td><%= dynamique.correction %></td>
+    <td><%= dynamique.titre %></td>
+    <td><%= link_to 'Show', dynamique %></td>
+    <td><%= link_to 'Edit', edit_dynamique_path(dynamique) %></td>
+    <td><%= link_to 'Destroy', dynamique, confirm: 'Are you sure?', method: :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Dynamique', new_dynamique_path %>

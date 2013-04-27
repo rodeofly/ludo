@@ -1,0 +1,25 @@
+<h1>Listing exercice_dynamiques</h1>
+
+<table>
+  <tr>
+    <th>Exercice</th>
+    <th>Dynamique</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @exercice_dynamiques.each do |exercice_dynamique| %>
+  <tr>
+    <td><%= exercice_dynamique.exercice_id %></td>
+    <td><%= exercice_dynamique.dynamique_id %></td>
+    <td><%= link_to 'Show', exercice_dynamique %></td>
+    <td><%= link_to 'Edit', edit_exercice_dynamique_path(exercice_dynamique) %></td>
+    <td><%= link_to 'Destroy', exercice_dynamique, confirm: 'Are you sure?', method: :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Exercice dynamique', new_exercice_dynamique_path %>

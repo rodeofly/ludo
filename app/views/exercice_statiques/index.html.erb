@@ -1,0 +1,25 @@
+<h1>Listing exercice_statiques</h1>
+
+<table>
+  <tr>
+    <th>Exercice</th>
+    <th>Statique</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @exercice_statiques.each do |exercice_statique| %>
+  <tr>
+    <td><%= exercice_statique.exercice_id %></td>
+    <td><%= exercice_statique.statique_id %></td>
+    <td><%= link_to 'Show', exercice_statique %></td>
+    <td><%= link_to 'Edit', edit_exercice_statique_path(exercice_statique) %></td>
+    <td><%= link_to 'Destroy', exercice_statique, confirm: 'Are you sure?', method: :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Exercice statique', new_exercice_statique_path %>

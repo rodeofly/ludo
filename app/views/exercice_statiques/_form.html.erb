@@ -1,0 +1,25 @@
+<%= form_for(@exercice_statique) do |f| %>
+  <% if @exercice_statique.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@exercice_statique.errors.count, "error") %> prohibited this exercice_statique from being saved:</h2>
+
+      <ul>
+      <% @exercice_statique.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :exercice_id %><br />
+    <%= f.number_field :exercice_id %>
+  </div>
+  <div class="field">
+    <%= f.label :statique_id %><br />
+    <%= f.number_field :statique_id %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

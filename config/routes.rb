@@ -1,4 +1,18 @@
 Ludo::Application.routes.draw do
+  resources :exercice_dynamiques
+
+  resources :dynamiques
+
+  resources :exercice_statiques
+
+  resources :statiques
+
+  resources :exercice_sujet_statiques
+
+  resources :sujet_statiques
+
+  resources :themes
+
   devise_for :users
 
   mount RailsAdmin::Engine => '/admin', :as => 'rails_admin'
