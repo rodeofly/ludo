@@ -19,7 +19,12 @@ Ludo::Application.routes.draw do
 
   resources :corrections
 
-  resources :exercices
+  resources :exercices do
+    member do
+      get 'latec'
+    end
+  end
+
 
   resources :sujets
 

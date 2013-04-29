@@ -17,9 +17,7 @@
 
 <p>
   <b>Contenu:</b>
-  <%= @exercice.contenu %>
+  <%= hesc(@exercice.contenu) %>
 </p>
-
-
 <%= link_to 'Edit', edit_exercice_path(@exercice) %> |
 <%= link_to 'Back', exercices_path %>

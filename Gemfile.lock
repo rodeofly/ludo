@@ -95,6 +95,8 @@ GEM
       activesupport (= 3.2.2)
       bundler (~> 1.0)
       railties (= 3.2.2)
+    rails-latex (1.0.11)
+      rails (>= 3.0.0)
     rails_admin (0.4.7)
       bootstrap-sass (~> 2.2)
       builder (~> 3.0)
@@ -153,6 +155,7 @@ DEPENDENCIES
   jquery-rails
   pg
   rails (= 3.2.2)
+  rails-latex
   rails_admin
   sass-rails (~> 3.2.3)
   sqlite3
