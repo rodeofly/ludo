@@ -17,7 +17,9 @@
 
 <p>
   <b>Contenu:</b>
-  <%= hesc(@exercice.contenu) %>
+  <%= raw(@exercice.contenu) %>
 </p>
+<center><%= image_tag('R/rplot.png') %></center>
+
 <%= link_to 'Edit', edit_exercice_path(@exercice) %> |
 <%= link_to 'Back', exercices_path %>

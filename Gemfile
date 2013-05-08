@@ -49,3 +49,4 @@ gem 'rails_admin'
 
 
 gem "devise"
+gem "rserve-simpler"
