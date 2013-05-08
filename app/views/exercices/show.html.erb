@@ -17,9 +17,7 @@
 
 <p>
   <b>Contenu:</b>
-  <%= raw(@exercice.contenu) %>
+  <%= raw hesc @exercice.contenu %>
 </p>
-<center><%= image_tag('R/rplot.png') %></center>
-
-<%= link_to 'Edit', edit_exercice_path(@exercice) %> |
+<iframe src="http://docs.google.com/viewer?url=http%3A%2F%2Flocalhost%3A3000%2Fpdf%2Ftemp.pdf&embedded=true" width="600" height="780" style="border: none;"></iframe><%= link_to 'Edit', edit_exercice_path(@exercice) %> |
 <%= link_to 'Back', exercices_path %>

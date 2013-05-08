@@ -16,50 +16,18 @@ class ExercicesController < ApplicationController
   # GET /exercices/1.json
   def show
     @exercice = Exercice.find(params[:id])
-    text = @exercice.contenu
-    #Effacer tout avant begin document
-    text.gsub!(/.*?(?=\\begin{document)/im, "")
-
-    # Remplacer les <anchor1>exp1$<anchor2> par exp2
-    # $text$ => (text)
-    text.gsub!(/\$(.*?)\$/im, '\(\\1\)')
-    # textit{text} => <i>text</i>
-    text.gsub!(/\\textit\{(.*?)\}/im, '<i>\\1</i>')
-    # \begin{center} => <center>text</center>
-    text.gsub!(/\\begin\{center\}(.*?)\\end\{center\}/im, '<center>\\1</center>')
-    
-    # Can't Match Html !
-    text.gsub!("~", "")
-    text.gsub!("\\begin{document}", "")
-    text.gsub!("\\end{document}", "")
-    text.gsub!("\\medskip", "")
-    text.gsub!("\\bigskip", "")
-
-    # Bon Match !
-    text.gsub!("\\'E", "É")
-    text.gsub!("\\exo", "<h1>Exercice</h1>")
-    text.gsub!("\\begin{itemize}", "<ul>")
-    text.gsub!("\\item " ,"<li>")
-    text.gsub!("\\end{itemize}", "</ul>")
-    text.gsub!("\\begin{enumerate}", "<ol>")
-    text.gsub!("\\end{enumerate}", "</ol>")
-    @exercice.contenu= text
-
-    require 'rserve/simpler'
-    r = Rserve::Simpler.new
-    # convert with hash.to_dataframe or Rserve::DataFrame.new(hash)
-    r.command(:filename => '/var/www/ludo/app/assets/images/R/rplot.png') do %Q{
-        
-        png(filename)
-        vals <- curve( (x-5)*(x-3)/( (x+1)*(x-4) ), -3 ,5, n=1000)
-        is.na(vals$y) <- abs(vals$y) > 100
-        plot(vals, type="l",xlab="x axis", ylab="y axis", main="représentation graphique", ylim=c(0,20), xlim=c(0,20), pch=15, col="blue")
-        dev.off()
-      }
+    content = render_to_string(:template => "/exercices/show.pdf.erb", :layout => true)
+    puts content
+    puts "###################################################################"
+    target  = "/var/www/ludo/public/pdf/temp.pdf"
+    File.open(target, "w+") do |f|
+      f.write(content)
     end
+    
     respond_to do |format|
       format.html # show.html.erb
       format.json { render json: @exercice }
+      format.pdf { render pdf: @exercice }
     end
   end
 
@@ -67,7 +35,6 @@ class ExercicesController < ApplicationController
   # GET /exercices/new.json
   def new
     @exercice = Exercice.new
-
     respond_to do |format|
       format.html # new.html.erb
       format.json { render json: @exercice }

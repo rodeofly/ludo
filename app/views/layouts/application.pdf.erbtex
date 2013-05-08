@@ -1,0 +1,19 @@
+\documentclass[a4paper,10pt]{article}
+\usepackage[utf8x]{inputenc}
+\usepackage[dvips]{pstricks}
+\usepackage{tabularx}
+\usepackage{commath}
+
+% Il y en a marre de ces marges de deux kilomètres !
+\usepackage{vmargin}
+% 2 cm pour chaque marge = vu dans openoffice
+\setmarginsrb{2cm}{2cm}{2cm}{2cm}{0cm}{0cm}{0cm}{0cm}
+
+\title{Exercices sur les formules mathématiques sous \LaTeX}
+\author{gusaweb}
+
+\begin{document}
+
+<%= yield %>
+
+\end{document}
